@@ -1,20 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CMS User Login</title>
-
+    <c:set value="${pageContext.request.contextPath}" var="path" scope="application"/>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/form-elements.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${path}/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${path}/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="${path}/assets/css/form-elements.css">
+    <link rel="stylesheet" type="text/css" href="${path}/assets/css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <form:form action="/login" method="post" commandName="user" role="form">
+                        <form:form action="${path}/login" method="post" commandName="user" role="form">
                             <div class="form-group">
                                 <label class="sr-only" for="username">username</label>
                                 <input type="text" id="username" name="nickname" placeholder="Username..." class="form-username form-control" >
@@ -75,13 +75,13 @@
 
 
 <!-- Javascript -->
-<script src="/assets/js/jquery-1.11.1.min.js"></script>
-<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="/assets/js/jquery.backstretch.min.js"></script>
-<script src="/assets/js/scripts.js"></script>
+<script src="${path}/assets/js/jquery-1.11.1.min.js"></script>
+<script src="${path}/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="${path}/assets/js/jquery.backstretch.min.js"></script>
+<script src="${path}/assets/js/scripts.js"></script>
 
 <!--[if lt IE 10]>
-<script src="/assets/js/placeholder.js"></script>
+<script src="${path}/assets/js/placeholder.js"></script>
 <![endif]-->
 
 </body>

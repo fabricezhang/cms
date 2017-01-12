@@ -24,8 +24,8 @@
 <div class="container">
     <h1>CMS Articles</h1>
     <hr/>
-
-    <h3>All Articles <a href="/admin/articles/add" type="button" class="btn btn-primary btn-sm">Add</a></h3>
+    <c:set value="${pageContext.request.contextPath}" var="path" scope="page"/>
+    <h3>All Articles <a href="${path}/admin/articles/add" type="button" class="btn btn-primary btn-sm">Add</a></h3>
 
     <!-- 如果用户列表为空 -->
     <c:if test="${empty articleList}">
@@ -52,9 +52,9 @@
                     <td>${article.userByUserId.firstName} ${article.userByUserId.lastName}</td>
                     <td><fmt:formatDate value="${article.pubDate }" pattern="yyyy-MM-dd"/></td>
                     <td>
-                        <a href="/admin/articles/show/${article.id}" type="button" class="btn btn-sm btn-success">Details</a>
-                        <a href="/admin/articles/update/${article.id}" type="button" class="btn btn-sm btn-warning">Modify</a>
-                        <a href="/admin/articles/delete/${article.id}" type="button" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="${path}/admin/articles/show/${article.id}" type="button" class="btn btn-sm btn-success">Details</a>
+                        <a href="${path}/admin/articles/update/${article.id}" type="button" class="btn btn-sm btn-warning">Modify</a>
+                        <a href="${path}/admin/articles/delete/${article.id}" type="button" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
             </c:forEach>

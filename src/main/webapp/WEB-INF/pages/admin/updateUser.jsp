@@ -23,8 +23,8 @@
 <div class="container">
     <h1>SpringMVC 更新用户信息</h1>
     <hr/>
-
-    <form:form action="/admin/users/updateP" method="post" commandName="userP" role="form">
+    <c:set value="${pageContext.request.contextPath}" var="path" scope="page"/>
+    <form:form action="${path}/admin/users/updateP" method="post" commandName="userP" role="form">
         <div class="form-group">
             <label for="firstName">Nickname:</label>
             <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Enter Nickname:"

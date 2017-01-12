@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>CMS Add Articles</title>
-
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -24,7 +23,8 @@
 <div class="container">
     <h1>CMS Add Article</h1>
     <hr/>
-    <form:form action="/admin/articles/addP" method="post" commandName="article" role="form">
+    <c:set value="${pageContext.request.contextPath}" var="path" scope="page"/>
+    <form:form action="${path}/admin/articles/addP" method="post" commandName="article" role="form">
         <div class="form-group">
             <label for="title">Title:</label>
             <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title:"/>
@@ -59,8 +59,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 
-<link href="/assets/summernote/css/summernote.css" rel="stylesheet">
-<script src="/assets/summernote/js/summernote.min.js"></script>
+<link href="${path}/assets/summernote/css/summernote.css" rel="stylesheet">
+<script src="${path}/assets/summernote/js/summernote.min.js"></script>
 
 <script>
 

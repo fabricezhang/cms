@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>SpringMVC 用户管理</title>
+    <title>User Management</title>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -23,8 +23,8 @@
 <div class="container">
     <h1>SpringMVC 博客系统-用户管理</h1>
     <hr/>
-
-    <h3>所有用户 <a href="/admin/users/add" type="button" class="btn btn-primary btn-sm">添加</a></h3>
+    <c:set value="${pageContext.request.contextPath}" var="path" scope="page"/>
+    <h3>所有用户 <a href="${path}/admin/users/add" type="button" class="btn btn-primary btn-sm">添加</a></h3>
 
     <!-- 如果用户列表为空 -->
     <c:if test="${empty userList}">
