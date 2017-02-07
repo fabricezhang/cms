@@ -6,6 +6,11 @@
 
   <display-name>CMS Web Application</display-name>
 
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.mp4</url-pattern>
+  </servlet-mapping>
+
   <servlet>
     <servlet-name>cms-dispatcher</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

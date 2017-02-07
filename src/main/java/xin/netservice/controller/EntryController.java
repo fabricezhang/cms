@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import xin.netservice.model.UserEntity;
 import xin.netservice.repository.UserRepository;
 import xin.netservice.service.UserService;
-import xin.netservice.service.impl.UserServiceImpl;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -25,23 +24,33 @@ public class EntryController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = {"/index","/"})
     public String index() {
-        return "index";
+        return "client/index";
     }
 
+    @RequestMapping(value = "admin/login", method = RequestMethod.GET)
+    public String loginGet(){
+        return "admin/login";
+    }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(HttpSession httpSession,@RequestParam("nickname") String nickname, @RequestParam("password") String password) {
-        if((null != nickname) && (null != password)
-                && userService.login(nickname,password)){
-            UserEntity userEntity = userService.findByName(nickname);
-            httpSession.setAttribute("username",nickname);
+    @RequestMapping(value = "admin/login", method = RequestMethod.POST)
+    public String login(HttpSession httpSession,@RequestParam("username") String username, @RequestParam("password") String password) {
+        if((null != username) && (null != password)
+                && userService.login(username,password)){
+            UserEntity userEntity = userService.findByName(username);
+            httpSession.setAttribute("username",username);
             httpSession.setAttribute("userID",userEntity.getId());
-            return "redirect:admin/articles";
+            return "redirect:admin-index";
         } else{
-            return "index";
+            return "admin/login";
         }
+    }
+
+    @RequestMapping(value = "admin/admin-index",method = RequestMethod.GET)
+    public String adminManagement(HttpSession httpSession,@ModelAttribute("username")String username){
+        return "admin/admin-index";
+
     }
 
     @RequestMapping(value = "/logout")

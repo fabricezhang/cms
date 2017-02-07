@@ -35,14 +35,14 @@ public class loginInterceptor extends HandlerInterceptorAdapter {
         String requestUri = request.getRequestURI();
         String contextPath = request.getContextPath();
         String url = requestUri.substring(contextPath.length());
-        if (("/login".equals(url)) || ("/".equals(url))) {
+        if (("/admin/login".equals(url)) || ("/".equals(url)) || ("/index".equals(url))) {
             return true;
         }else {
             String username =  (String)request.getSession().getAttribute("username");
             Integer userID = (Integer) request.getSession().getAttribute("userID");
             if(username == null || userID == null){
                 log.info("Interceptor：跳转到login页面！");
-                request.getRequestDispatcher("/").forward(request, response);
+                request.getRequestDispatcher("/admin/login").forward(request, response);
                 return false;
             }else
                 return true;
