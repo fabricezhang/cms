@@ -26,6 +26,7 @@
             <!-- 需排除拦截的地址 -->
             <mvc:exclude-mapping path="/assets/**" />
             <mvc:exclude-mapping path="/video/**"/>
+            <mvc:exclude-mapping path="/article/**"/>
             <bean id="loginInterceptor" class="xin.netservice.interceptor.loginInterceptor"/>
             <!--这个类就是我们自定义的Interceptor -->
         </mvc:interceptor>
@@ -34,7 +35,6 @@
 
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:resources mapping="/assets/**" location="assets/"/>
-    <mvc:resources mapping="/video/**" location="videos/"/>
     <!--<mvc:default-servlet-handler/>-->
 
     <!-- 开启注解 -->

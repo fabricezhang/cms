@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>开放性科学实践活动</title>
     <link rel="icon" href="${path}/assets/icon/favicon.ico" />
     <!--jquery库-->
     <script src="${path}/assets/js/jquery.min.js"></script>
@@ -61,7 +62,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-expanded="false"><i class="fa fa-user fa-fw"></i>&nbsp;游客&nbsp;<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="${path}/login"><i class="fa fa-sign-out fa-fw"></i>&nbsp;登录</a></li>
+                        <li><a href="${path}/admin/login"><i class="fa fa-sign-out fa-fw"></i>&nbsp;登录</a></li>
                     </ul>
                 </li>
             </ul>
@@ -78,7 +79,7 @@
     </div>
     <div class="maincontent row">
         <ul class="breadcrumb">
-            <li class="active"><Strong>视频————</Strong></li>
+            <li class="active"><Strong>视频文件——建议在WIFI下观看</Strong></li>
         </ul>
         <div class="col-sm-10 col-sm-offset-1">
             <div class="embed-responsive embed-responsive-16by9">
@@ -89,7 +90,7 @@
                     <%--<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4">--%>
                     <%--<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">--%>
                     <%--<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">--%>
-                    <source src="http://115.28.8.165/videos/1.mp4" type="video/mp4" >
+                    <source src="http://115.28.8.165/videos/physic/${videoPath}.MP4" type="video/mp4" >
                 </video>
             </div>
         </div>

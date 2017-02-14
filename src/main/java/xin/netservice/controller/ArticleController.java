@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Created by z on 2017/1/12.
+ * Created by z on 2017/2/14.
  */
 @Controller
-public class VideoController {
+public class ArticleController {
 
-    @RequestMapping(value = "/video/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/article/{id}",method = RequestMethod.GET)
     public String showVideoByID(@PathVariable("id") String id, ModelMap modelMap){
         // 返回给请求页面
         modelMap.addAttribute("videoPath", id);
-        return "/client/video";
+        return "/client/article";
     }
 
-    @RequestMapping(value = "/video",method = RequestMethod.GET)
+    @RequestMapping(value = "/article",method = RequestMethod.GET)
     public String showVideo(ModelMap modelMap){
         // 返回给请求页面
-        modelMap.addAttribute("videoPath", "p-1-1");
-        return "/client/video";
+        return "/client/article";
     }
+
 }

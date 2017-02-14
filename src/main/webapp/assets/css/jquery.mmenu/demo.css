@@ -94,5 +94,6 @@ nav:not(.mm-menu)
 }
 .content
 {
-	padding: 150px 50px 50px 50px;
+	border-image-width: auto;
+	padding: 20px 50px 50px 50px;
 }

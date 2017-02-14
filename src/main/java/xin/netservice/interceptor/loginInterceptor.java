@@ -7,6 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by z on 2017/1/9.
@@ -14,6 +17,10 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class loginInterceptor extends HandlerInterceptorAdapter {
 
     private final Logger log = LoggerFactory.getLogger(loginInterceptor.class);
+    // TODO May put them to xin.net-service.constant Package not now
+    private final static List<String> urlAllowed = new ArrayList<>(Arrays.asList(
+            "/","/index","/login","/admin/login"));
+
 
     /**
      * 在业务处理器处理请求之前被调用
@@ -32,10 +39,11 @@ public class loginInterceptor extends HandlerInterceptorAdapter {
                              HttpServletResponse response, Object handler) throws Exception {
 
         log.info("==============执行顺序: 1、preHandle================");
+        //Keep These Variables for Future Debug Usage
         String requestUri = request.getRequestURI();
         String contextPath = request.getContextPath();
         String url = requestUri.substring(contextPath.length());
-        if (("/admin/login".equals(url)) || ("/".equals(url)) || ("/index".equals(url))) {
+        if (checkAccess(url)) {
             return true;
         }else {
             String username =  (String)request.getSession().getAttribute("username");
@@ -71,6 +79,15 @@ public class loginInterceptor extends HandlerInterceptorAdapter {
                                 HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
         log.info("==============执行顺序: 3、afterCompletion================");
+    }
+
+    private boolean checkAccess(String url){
+        for (String pattern:urlAllowed) {
+            if(pattern.equals(url)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

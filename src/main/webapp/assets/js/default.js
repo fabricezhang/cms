@@ -1,7 +1,7 @@
 ﻿$(function () {
     pageInitModule.setWidth();
     pageInitModule.setSidebar();
-    pageInitModule.setCarousel();
+    //pageInitModule.setCarousel();
 })
 $(window).resize(function () {
     pageInitModule.setWidth();

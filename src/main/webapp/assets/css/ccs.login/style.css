@@ -121,7 +121,8 @@ img { max-width: 100%; }
 	padding-top: 25px;
 }
 
-.form-top-left h3 { margin-top: 0; }
+.form-top-left h3,p{ margin-top: 0;
+	color: #ffffff; }
 
 .form-top-right {
 	float: left;

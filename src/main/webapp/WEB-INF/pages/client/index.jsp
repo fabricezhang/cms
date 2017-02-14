@@ -29,18 +29,13 @@
     <script src="${path}/assets/js/jquery.scrolltopcontrol/scrolltopcontrol.js" type="text/javascript"></script>
     <!--主要写的jquery拓展方法-->
     <script src="${path}/assets/js/jquery.extend.js" type="text/javascript"></script>
-    <!--主要写的css代码-->
-    <link href="${path}/assets/css/default.css" rel="stylesheet" type="text/css" />
-    <!--主要写的js代码-->
-    <script src="${path}/assets/js/default.js" type="text/javascript"></script>
+
+
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle show pull-left" data-target="sidebar">
-                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
@@ -49,7 +44,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="${path}/articles"><i class="fa fa-book fa-fw"></i>文章</a></li>
+                <li><a href="${path}/article"><i class="fa fa-book fa-fw"></i>文章</a></li>
                 <li><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
                 <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
             </ul>
@@ -66,14 +61,7 @@
     </div>
 </nav>
 <div class="container-fluid all">
-    <div class="sidebar">
-        <ul class="nav">
-            <li><h3 class=text-info>内容列表</h3></li>
-            <li><a href="${path}/articles">所有文章</a></li>
-            <li><a href="${path}/video">所有视频</a></li>
-        </ul>
-    </div>
-    <div class="maincontent row">
+    <div class="col-sm-8 col-sm-offset-2 ">
         <!--我是主要内容 start-->
         <ul class="breadcrumb">
             <li class="active">主页</li>
@@ -81,20 +69,20 @@
         <div class="col-sm-12">
             <div class="jumbotron">
                 <h1>欢迎访问内容发布系统测试版</h1>
-                <p>本系统主要设计文章、视频的发布与管理，仍处于测试开发中，欢迎提出反馈意见</p>
+                <p>本系统主要涉及文章、视频的发布与管理，测试开发中</p>
             </div>
             <ul class="list-group">
                 <li class="list-group-item active">
                     最新文章
                 </li>
                 <li class="list-group-item">
-                    古代计时工具————刻漏（<a href="${path}/articles/00001" target="_blank">阅读</a>）
+                    古代计时工具————刻漏（<a href="${path}/article/00001" target="_blank">阅读</a>）
                 </li>
                 <li class="list-group-item">
-                    神秘的倒装壶（<a href="${path}/articles/00002" target="_blank">阅读</a>）
+                    神秘的倒装壶（<a href="${path}/article/00002" target="_blank">阅读</a>）
                 </li>
                 <li class="list-group-item">
-                    奇妙的水杯琴（<a href="${path}/articles/00003" target="_blank">阅读</a>）
+                    奇妙的水杯琴（<a href="${path}/article/00003" target="_blank">阅读</a>）
                 </li>
             </ul>
             <ul class="list-group">
@@ -110,6 +98,5 @@
         <!--我是主要内容 end-->
     </div>
 </div>
-<a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
 </body>
 </html>
