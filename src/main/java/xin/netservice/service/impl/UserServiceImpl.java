@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean login(String nickname, String password) {
         try{
-            UserEntity userEntity = userRepository.findByNickname(nickname);
+            UserEntity userEntity = userRepository.findByUsername(nickname);
             if(userEntity.getPassword().equals(password)){
                 return true;
             }else {
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserEntity findByName(String nickname){
         try{
-            return userRepository.findByNickname(nickname);
+            return userRepository.findByUsername(nickname);
         } catch (Exception e){
             e.printStackTrace();
         }

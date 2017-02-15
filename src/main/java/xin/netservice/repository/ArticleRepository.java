@@ -16,13 +16,14 @@ import java.util.List;
  */
 public interface ArticleRepository extends JpaRepository<ArticleEntity, Integer> {
 
-    // 修改博文操作
-    @Modifying
-    @Transactional
-    @Query("update ArticleEntity article set article.title=:qTitle, article.userByUserId.id=:qUserId," +
-            " article.content=:qContent, article.pubDate=:qPubDate where article.id=:qId")
-    void updateBlog(@Param("qTitle") String title, @Param("qUserId") int userId, @Param("qContent") String content,
-                    @Param("qPubDate") Date pubDate, @Param("qId") int id);
+//    // 修改博文操作
+//    @Modifying
+//    @Transactional
+//    @Query("update ArticleEntity article set article.title=:qTitle, article.userByUserId.id=:qUserId," +
+//            " article.content=:qContent, article.pubDate=:qPubDate where article.id=:qId")
+//    void updateBlog(@Param("qTitle") String title, @Param("qUserId") int userId, @Param("qContent") String content,
+//                    @Param("qPubDate") Date pubDate, @Param("qId") int id);
 
     List<ArticleEntity> findByUserByUserId(UserEntity userEntity);
+    ArticleEntity findById(Integer id);
 }

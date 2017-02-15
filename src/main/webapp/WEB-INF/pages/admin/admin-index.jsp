@@ -89,5 +89,6 @@
     </div>
 </div>
 <a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
+</div>
 </body>
 </html>

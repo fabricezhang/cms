@@ -53,7 +53,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="${path}/articles"><i class="fa fa-book fa-fw"></i>文章</a></li>
+                <li><a href="${path}/article"><i class="fa fa-book fa-fw"></i>文章</a></li>
                 <li class="active"><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
                 <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
             </ul>
@@ -73,13 +73,13 @@
     <div class="sidebar">
         <ul class="nav">
             <li><h3 class=text-info>内容列表</h3></li>
-            <li><a href="${path}/articles">所有文章</a></li>
+            <li><a href="${path}/article">所有文章</a></li>
             <li><a href="${path}/video">所有视频</a></li>
         </ul>
     </div>
     <div class="maincontent row">
         <ul class="breadcrumb">
-            <li class="active"><Strong>视频文件——建议在WIFI下观看</Strong></li>
+            <li class="active"><Strong>视频——建议在WIFI下观看</Strong></li>
         </ul>
         <div class="col-sm-10 col-sm-offset-1">
             <div class="embed-responsive embed-responsive-16by9">

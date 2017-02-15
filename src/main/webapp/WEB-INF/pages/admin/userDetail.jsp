@@ -29,8 +29,8 @@
             <td>${user.id}</td>
         </tr>
         <tr>
-            <th>Nickname</th>
-            <td>${user.nickname}</td>
+            <th>Username</th>
+            <td>${user.username}</td>
         </tr>
         <tr>
             <th>First Name</th>

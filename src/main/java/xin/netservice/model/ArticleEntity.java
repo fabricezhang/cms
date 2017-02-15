@@ -1,19 +1,19 @@
 package xin.netservice.model;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 /**
- * Created by z on 2017/1/2.
+ * Created by z on 2017/2/15.
  */
 @Entity
 @Table(name = "article", schema = "cms", catalog = "")
 public class ArticleEntity {
     private int id;
     private String title;
-    private String content;
-    private Date pubDate;
+    private String videoPath;
+    private String imagePath;
     private UserEntity userByUserId;
+    private CourseEntity courseByCategory;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -36,23 +36,23 @@ public class ArticleEntity {
     }
 
     @Basic
-    @Column(name = "content", nullable = true, length = -1)
-    public String getContent() {
-        return content;
+    @Column(name = "video_path", nullable = true, length = 1000)
+    public String getVideoPath() {
+        return videoPath;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setVideoPath(String videoPath) {
+        this.videoPath = videoPath;
     }
 
     @Basic
-    @Column(name = "pub_date", nullable = false)
-    public Date getPubDate() {
-        return pubDate;
+    @Column(name = "image_path", nullable = true, length = 1000)
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setPubDate(Date pubDate) {
-        this.pubDate = pubDate;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     @Override
@@ -64,8 +64,8 @@ public class ArticleEntity {
 
         if (id != that.id) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
-        if (content != null ? !content.equals(that.content) : that.content != null) return false;
-        if (pubDate != null ? !pubDate.equals(that.pubDate) : that.pubDate != null) return false;
+        if (videoPath != null ? !videoPath.equals(that.videoPath) : that.videoPath != null) return false;
+        if (imagePath != null ? !imagePath.equals(that.imagePath) : that.imagePath != null) return false;
 
         return true;
     }
@@ -74,8 +74,8 @@ public class ArticleEntity {
     public int hashCode() {
         int result = id;
         result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (pubDate != null ? pubDate.hashCode() : 0);
+        result = 31 * result + (videoPath != null ? videoPath.hashCode() : 0);
+        result = 31 * result + (imagePath != null ? imagePath.hashCode() : 0);
         return result;
     }
 
@@ -87,5 +87,15 @@ public class ArticleEntity {
 
     public void setUserByUserId(UserEntity userByUserId) {
         this.userByUserId = userByUserId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "category", referencedColumnName = "id", nullable = false)
+    public CourseEntity getCourseByCategory() {
+        return courseByCategory;
+    }
+
+    public void setCourseByCategory(CourseEntity courseByCategory) {
+        this.courseByCategory = courseByCategory;
     }
 }

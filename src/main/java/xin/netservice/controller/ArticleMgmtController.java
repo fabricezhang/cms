@@ -76,16 +76,16 @@ public class ArticleMgmtController {
         return "admin/updateArticle";
     }
 
-    // 修改博客内容，POST请求
-    @RequestMapping(value = "/admin/articles/updateP", method = RequestMethod.POST)
-    public String updateArticleP(@ModelAttribute("articleP") ArticleEntity articleEntity) {
-        // 更新博客信息
-        System.out.println(articleEntity.getTitle());
-        articleRepository.updateBlog(articleEntity.getTitle(), articleEntity.getUserByUserId().getId(),
-                articleEntity.getContent(), articleEntity.getPubDate(), articleEntity.getId());
-        articleRepository.flush();
-        return "redirect:/admin/articles";
-    }
+//    // 修改博客内容，POST请求
+//    @RequestMapping(value = "/admin/articles/updateP", method = RequestMethod.POST)
+//    public String updateArticleP(@ModelAttribute("articleP") ArticleEntity articleEntity) {
+//        // 更新博客信息
+//        System.out.println(articleEntity.getTitle());
+//        articleRepository.updateBlog(articleEntity.getTitle(), articleEntity.getUserByUserId().getId(),
+//                articleEntity.getContent(), articleEntity.getPubDate(), articleEntity.getId());
+//        articleRepository.flush();
+//        return "redirect:/admin/articles";
+//    }
 
     // 删除博客文章
     @RequestMapping("/admin/articles/delete/{id}")

@@ -1,18 +1,20 @@
 package xin.netservice.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
- * Created by z on 2017/1/2.
+ * Created by z on 2017/2/15.
  */
 @Entity
 @Table(name = "user", schema = "cms", catalog = "")
 public class UserEntity {
     private int id;
-    private String nickname;
     private String password;
     private String firstName;
     private String lastName;
+    private String username;
+    private Collection<ArticleEntity> articlesById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -22,16 +24,6 @@ public class UserEntity {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    @Basic
-    @Column(name = "nickname", nullable = false, length = 45)
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
     }
 
     @Basic
@@ -64,6 +56,16 @@ public class UserEntity {
         this.lastName = lastName;
     }
 
+    @Basic
+    @Column(name = "username", nullable = false, length = 45)
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -72,10 +74,10 @@ public class UserEntity {
         UserEntity that = (UserEntity) o;
 
         if (id != that.id) return false;
-        if (nickname != null ? !nickname.equals(that.nickname) : that.nickname != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
+        if (username != null ? !username.equals(that.username) : that.username != null) return false;
 
         return true;
     }
@@ -83,10 +85,19 @@ public class UserEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (username != null ? username.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "userByUserId")
+    public Collection<ArticleEntity> getArticlesById() {
+        return articlesById;
+    }
+
+    public void setArticlesById(Collection<ArticleEntity> articlesById) {
+        this.articlesById = articlesById;
     }
 }
