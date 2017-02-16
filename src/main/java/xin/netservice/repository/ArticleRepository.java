@@ -26,4 +26,5 @@ public interface ArticleRepository extends JpaRepository<ArticleEntity, Integer>
 
     List<ArticleEntity> findByUserByUserId(UserEntity userEntity);
     ArticleEntity findById(Integer id);
+    List<ArticleEntity> findAllByCourseByCategory_Id(Integer id);
 }

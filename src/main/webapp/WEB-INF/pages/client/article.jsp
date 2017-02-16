@@ -88,9 +88,12 @@
 <div class="container-fluid all">
     <div class="sidebar">
         <ul class="nav">
-            <li><h3 class=text-info>内容列表</h3></li>
-            <li><a href="${path}/article">所有文章</a></li>
-            <li><a href="${path}/video">所有视频</a></li>
+            <li><h3 class=text-info>相关内容</h3></li>
+            <c:if test="${!empty articleList}">
+                <c:forEach items="${articleList}" var="article">
+                    <li><a href="${path}/article/${article.id}"><i class="fa fa-circle-o fa-fw"></i>&nbsp;${article.title}</a></li>
+                </c:forEach>
+            </c:if>
         </ul>
     </div>
     <div class="maincontent row">

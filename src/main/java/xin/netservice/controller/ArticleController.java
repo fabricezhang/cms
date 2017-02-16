@@ -10,6 +10,8 @@ import xin.netservice.model.ArticleEntity;
 import xin.netservice.repository.ArticleRepository;
 import xin.netservice.service.ArticleService;
 
+import java.util.List;
+
 /**
  * Created by z on 2017/2/14.
  */
@@ -26,12 +28,9 @@ public class ArticleController {
     public String showVideoByID(@PathVariable("id") Integer id, ModelMap modelMap){
         // 返回给请求页面
         ArticleEntity articleEntity = articleRepository.findById(id);
-        if(null!=articleEntity){
-            modelMap.addAttribute("article", articleEntity);
-        } else {
-            modelMap.addAttribute("errMsg","未找到对应文件");
-            return "redirect:/client/index";
-        }
+        List<ArticleEntity> articleEntityList = articleRepository.findAllByCourseByCategory_Id(articleEntity.getCourseByCategory().getId());
+        modelMap.addAttribute("article", articleEntity);
+        modelMap.addAttribute("articleList",articleEntityList);
         return "/client/article";
     }
 

@@ -76,8 +76,9 @@
                 <h1 class="text-center">开放性科学实践活动</h1>
             </div>
             <h3  class="list-group-item active">文章列表</h3>
+            <br>
             <div class="row">
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <ul class="list-group">
                         <li class="list-group-item-info">
                             <strong>物理</strong>
@@ -92,7 +93,7 @@
                         </c:if>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <ul class="list-group">
                         <li class="list-group-item-info">
                             <strong>化学</strong>
@@ -107,7 +108,7 @@
                         </c:if>
                     </ul>
                 </div>
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <ul class="list-group">
                         <li class="list-group-item-info">
                             <strong>生物</strong>
@@ -121,8 +122,6 @@
                             </c:forEach>
                         </c:if>
                     </ul>
-                </div>
-                <div class="col-md-3 col-sm-12">
                     <ul class="list-group">
                         <li class="list-group-item-info">
                             <strong>地理</strong>
