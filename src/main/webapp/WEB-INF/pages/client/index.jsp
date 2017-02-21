@@ -23,131 +23,133 @@
     <!--页面加载进度条-->
     <link href="${path}/assets/css/pace/dataurl.css" rel="stylesheet" />
     <script src="${path}/assets/js/pace/pace.min.js"></script>
-    <!--jquery.hammer手势插件-->
-    <script src="${path}/assets/js/jquery.hammer/hammer.min.js"></script>
-    <script src="${path}/assets/js/jquery.hammer/jquery.hammer.js"></script>
     <!--平滑滚动到顶部库-->
     <script src="${path}/assets/js/jquery.scrolltopcontrol/scrolltopcontrol.js" type="text/javascript"></script>
-    <!--主要写的jquery拓展方法-->
+    <!--jquery拓展方法-->
     <script src="${path}/assets/js/jquery.extend.js" type="text/javascript"></script>
+    <link href="${path}/assets/css/index.css" rel="stylesheet" />
+    <script src="${path}/assets/js/index.js" type="text/javascript"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <%--<div class="jumbotron">--%>
-        <%--<img></img>--%>
-    <%--</div>--%>
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">导航</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="${path}/index">主页</a>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <%--<div class="jumbotron">--%>
+            <%--<img></img>--%>
+        <%--</div>--%>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="${path}/index">主页</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="${path}/articles"><i class="fa fa-book fa-fw"></i>文章</a></li>
+                    <li><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
+                    <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i class="fa fa-user fa-fw"></i>&nbsp;游客&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="${path}/admin/login"><i class="fa fa-sign-in fa-fw"></i>&nbsp;登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="${path}/article"><i class="fa fa-book fa-fw"></i>文章</a></li>
-                <li><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
-                <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
+    </nav>
+    <div class="container-fluid all">
+        <div class="col-md-8 col-md-offset-2 ">
+            <!--我是主要内容 start-->
+            <ul class="breadcrumb">
+                <li class="active">主页</li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-expanded="false"><i class="fa fa-user fa-fw"></i>&nbsp;游客&nbsp;<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="${path}/admin/login"><i class="fa fa-sign-in fa-fw"></i>&nbsp;登录</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h1 class="text-center">开放性科学实践活动</h1>
+                </div>
+                <h3  class="list-group-item active">文章列表</h3>
+                <br>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <ul class="list-group">
+                            <li class="list-group-item-info">
+                                <strong>物理</strong>
+                            </li>
+                            <c:if test="${!empty physicsArticleList}">
+                                <c:forEach items="${physicsArticleList}" var="physicsArticle">
+                                    <li class="list-group-item">
+                                        ${physicsArticle.title}（<a href="${path}/article/${physicsArticle.id}"
+                                                                   target="_blank">阅读</a>）
+                                    </li>
+                                </c:forEach>
+                            </c:if>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <ul class="list-group">
+                            <li class="list-group-item-info">
+                                <strong>化学</strong>
+                            </li>
+                            <c:if test="${!empty chemistryArticleList}">
+                                <c:forEach items="${chemistryArticleList}" var="chemistryArticle">
+                                    <li class="list-group-item">
+                                            ${chemistryArticle.title}（<a href="${path}/article/${chemistryArticle.id}"
+                                                                       target="_blank">阅读</a>）
+                                    </li>
+                                </c:forEach>
+                            </c:if>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <ul class="list-group">
+                            <li class="list-group-item-info">
+                                <strong>生物</strong>
+                            </li>
+                            <c:if test="${!empty biologyArticleList}">
+                                <c:forEach items="${biologyArticleList}" var="biologyArticle">
+                                    <li class="list-group-item">
+                                            ${biologyArticle.title}（<a href="${path}/article/${biologyArticle.id}"
+                                                                         target="_blank">阅读</a>）
+                                    </li>
+                                </c:forEach>
+                            </c:if>
+                        </ul>
+                        <ul class="list-group">
+                            <li class="list-group-item-info">
+                                <strong>地理</strong>
+                            </li>
+                            <c:if test="${!empty geographyArticleList}">
+                                <c:forEach items="${geographyArticleList}" var="geographyArticle">
+                                    <li class="list-group-item">
+                                            ${geographyArticle.title}（<a href="${path}/article/${geographyArticle.id}"
+                                                                       target="_blank">阅读</a>）
+                                    </li>
+                                </c:forEach>
+                            </c:if>
+                        </ul>
+                    </div>
+                </div>
+                <h3  class="list-group-item active">视频列表</h3>
+                <br>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="badge">2016.4.19</span>
+                        <a href="${path}/video">测试视频</a>
+                    </li>
+                </ul>
+            </div>
+            <!--我是主要内容 end-->
         </div>
     </div>
-</nav>
-<div class="container-fluid all">
-    <div class="col-md-8 col-md-offset-2 ">
-        <!--我是主要内容 start-->
-        <ul class="breadcrumb">
-            <li class="active">主页</li>
-        </ul>
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h1 class="text-center">开放性科学实践活动</h1>
-            </div>
-            <h3  class="list-group-item active">文章列表</h3>
-            <br>
-            <div class="row">
-                <div class="col-md-4 col-sm-12">
-                    <ul class="list-group">
-                        <li class="list-group-item-info">
-                            <strong>物理</strong>
-                        </li>
-                        <c:if test="${!empty physicsArticleList}">
-                            <c:forEach items="${physicsArticleList}" var="physicsArticle">
-                                <li class="list-group-item">
-                                    ${physicsArticle.title}（<a href="${path}/article/${physicsArticle.id}"
-                                                               target="_blank">阅读</a>）
-                                </li>
-                            </c:forEach>
-                        </c:if>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <ul class="list-group">
-                        <li class="list-group-item-info">
-                            <strong>化学</strong>
-                        </li>
-                        <c:if test="${!empty chemistryArticleList}">
-                            <c:forEach items="${chemistryArticleList}" var="chemistryArticle">
-                                <li class="list-group-item">
-                                        ${chemistryArticle.title}（<a href="${path}/article/${chemistryArticle.id}"
-                                                                   target="_blank">阅读</a>）
-                                </li>
-                            </c:forEach>
-                        </c:if>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <ul class="list-group">
-                        <li class="list-group-item-info">
-                            <strong>生物</strong>
-                        </li>
-                        <c:if test="${!empty biologyArticleList}">
-                            <c:forEach items="${biologyArticleList}" var="biologyArticle">
-                                <li class="list-group-item">
-                                        ${biologyArticle.title}（<a href="${path}/article/${biologyArticle.id}"
-                                                                     target="_blank">阅读</a>）
-                                </li>
-                            </c:forEach>
-                        </c:if>
-                    </ul>
-                    <ul class="list-group">
-                        <li class="list-group-item-info">
-                            <strong>地理</strong>
-                        </li>
-                        <c:if test="${!empty geographyArticleList}">
-                            <c:forEach items="${geographyArticleList}" var="geographyArticle">
-                                <li class="list-group-item">
-                                        ${geographyArticle.title}（<a href="${path}/article/${geographyArticle.id}"
-                                                                   target="_blank">阅读</a>）
-                                </li>
-                            </c:forEach>
-                        </c:if>
-                    </ul>
-                </div>
-            </div>
-            <h3  class="list-group-item active">视频列表</h3>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <span class="badge">2016.4.19</span>
-                    <a href="${path}/video">测试视频</a>
-                </li>
-            </ul>
-        </div>
-        <!--我是主要内容 end-->
-    </div>
-</div>
-<div class="navbar-fixed-bottom panel-footer text-center">Copyrigh 2017</div>
+    <a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
+    <div style="height:60px;"></div>
+    <div class="navbar-fixed-bottom panel-footer text-center">Copyrigh 2017</div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package xin.netservice.service;
 
+import org.springframework.ui.ModelMap;
 import xin.netservice.model.ArticleEntity;
 import xin.netservice.model.UserEntity;
 
@@ -10,4 +11,5 @@ import java.util.List;
  */
 public interface ArticleService {
     List<ArticleEntity> QueryArticlesByUserID(UserEntity userEntity);
+    ModelMap GetAllArticlesByCategory(ModelMap modelMap);
 }

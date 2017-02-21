@@ -23,9 +23,6 @@
     <!--页面加载进度条-->
     <link href="${path}/assets/css/pace/dataurl.css" rel="stylesheet" />
     <script src="${path}/assets/js/pace/pace.min.js"></script>
-    <!--jquery.hammer手势插件-->
-    <script src="${path}/assets/js/jquery.hammer/hammer.min.js"></script>
-    <script src="${path}/assets/js/jquery.hammer/jquery.hammer.js"></script>
     <!--平滑滚动到顶部库-->
     <script src="${path}/assets/js/jquery.scrolltopcontrol/scrolltopcontrol.js" type="text/javascript"></script>
     <!--主要写的jquery拓展方法-->
@@ -53,7 +50,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="${path}/article"><i class="fa fa-book fa-fw"></i>文章</a></li>
+                <li><a href="${path}/articles"><i class="fa fa-book fa-fw"></i>文章</a></li>
                 <li class="active"><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
                 <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
             </ul>
@@ -79,9 +76,9 @@
     </div>
     <div class="maincontent row">
         <ul class="breadcrumb">
-            <li class="active"><Strong>视频——建议在WIFI下观看</Strong></li>
+            <li class="active"><p class="text-warning">视频内容，建议在WIFI下观看</p></li>
         </ul>
-        <div class="col-sm-10 col-sm-offset-1">
+        <div class="col-md-10 col-md-offset-1">
             <div class="embed-responsive embed-responsive-16by9">
                 <h4 class="media-heading">物理</h4>
                 <video id="really-cool-video" class="video-js vjs-default-skin embed-responsive-item"

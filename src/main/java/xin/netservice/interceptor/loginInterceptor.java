@@ -81,6 +81,11 @@ public class loginInterceptor extends HandlerInterceptorAdapter {
         log.info("==============执行顺序: 3、afterCompletion================");
     }
 
+    /**
+     * 检查是否需要登录
+     * @param url
+     * @return boolean
+     */
     private boolean checkAccess(String url){
         for (String pattern:urlAllowed) {
             if(pattern.equals(url)) {

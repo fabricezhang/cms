@@ -25,9 +25,6 @@
     <!--页面加载进度条-->
     <link href="${path}/assets/css/pace/dataurl.css" rel="stylesheet" />
     <script src="${path}/assets/js/pace/pace.min.js"></script>
-    <!--jquery.hammer手势插件-->
-    <script src="${path}/assets/js/jquery.hammer/hammer.min.js"></script>
-    <script src="${path}/assets/js/jquery.hammer/jquery.hammer.js"></script>
     <!--平滑滚动到顶部库-->
     <script src="${path}/assets/js/jquery.scrolltopcontrol/scrolltopcontrol.js" type="text/javascript"></script>
     <!--主要写的jquery拓展方法-->
@@ -62,7 +59,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="${path}/article"><i class="fa fa-book fa-fw"></i>文章</a></li>
+                <li><a href="${path}/articles"><i class="fa fa-book fa-fw"></i>文章</a></li>
                 <li><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
                 <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
             </ul>
@@ -87,7 +84,7 @@
         </ul>
     </div>
     <div class="maincontent row">
-        <div class="col-sm-6 col-sm-offset-3 form-box">
+        <div class="col-md-6 col-md-offset-3 form-box">
             <div class="form-top">
                 <div class="form-top-left">
                     <h3>登录内容发布管理系统</h3>

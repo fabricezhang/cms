@@ -1,19 +1,20 @@
 package xin.netservice.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
- * Created by z on 2017/2/15.
+ * Created by z on 2017/2/21.
  */
 @Entity
 @Table(name = "article", schema = "cms", catalog = "")
 public class ArticleEntity {
     private int id;
     private String title;
-    private String videoPath;
     private String imagePath;
     private UserEntity userByUserId;
     private CourseEntity courseByCategory;
+    private Collection<VideoEntity> videosById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -36,16 +37,6 @@ public class ArticleEntity {
     }
 
     @Basic
-    @Column(name = "video_path", nullable = true, length = 1000)
-    public String getVideoPath() {
-        return videoPath;
-    }
-
-    public void setVideoPath(String videoPath) {
-        this.videoPath = videoPath;
-    }
-
-    @Basic
     @Column(name = "image_path", nullable = true, length = 1000)
     public String getImagePath() {
         return imagePath;
@@ -64,7 +55,6 @@ public class ArticleEntity {
 
         if (id != that.id) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
-        if (videoPath != null ? !videoPath.equals(that.videoPath) : that.videoPath != null) return false;
         if (imagePath != null ? !imagePath.equals(that.imagePath) : that.imagePath != null) return false;
 
         return true;
@@ -74,13 +64,12 @@ public class ArticleEntity {
     public int hashCode() {
         int result = id;
         result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (videoPath != null ? videoPath.hashCode() : 0);
         result = 31 * result + (imagePath != null ? imagePath.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     public UserEntity getUserByUserId() {
         return userByUserId;
     }
@@ -90,12 +79,21 @@ public class ArticleEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "category", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "category", referencedColumnName = "id")
     public CourseEntity getCourseByCategory() {
         return courseByCategory;
     }
 
     public void setCourseByCategory(CourseEntity courseByCategory) {
         this.courseByCategory = courseByCategory;
+    }
+
+    @OneToMany(mappedBy = "articleByArticleId")
+    public Collection<VideoEntity> getVideosById() {
+        return videosById;
+    }
+
+    public void setVideosById(Collection<VideoEntity> videosById) {
+        this.videosById = videosById;
     }
 }

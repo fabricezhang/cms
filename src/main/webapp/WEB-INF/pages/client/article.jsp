@@ -30,8 +30,6 @@
     <link href="${path}/assets/css/default.css" rel="stylesheet" type="text/css" />
     <!--主要写的js代码-->
     <script src="${path}/assets/js/default.js" type="text/javascript"></script>
-    <link href="${path}/assets/css/video/video-js.min.css" rel="stylesheet">
-    <script src="${path}/assets/js/video/video.min.js"></script>
     <link href="${path}/assets/css/jquery.owl.carousel/owl.carousel.css" rel="stylesheet" />
     <style>
         #owl-demo .item { margin: 3px; }
@@ -54,64 +52,62 @@
     </script>
 </head>
 <body oncontextmenu=self.event.returnValue=false onselectstart="return false">
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle show pull-left" data-target="sidebar">
-                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="${path}/index">主页</a>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle show pull-left" data-target="sidebar">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="${path}/index">主页</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="${path}/article"><i class="fa fa-book fa-fw"></i>文章</a></li>
+                    <li><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
+                    <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false"><i class="fa fa-user fa-fw"></i>&nbsp;游客&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="${path}/admin/login"><i class="fa fa-sign-out fa-fw"></i>&nbsp;登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="${path}/article"><i class="fa fa-book fa-fw"></i>文章</a></li>
-                <li><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
-                <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-expanded="false"><i class="fa fa-user fa-fw"></i>&nbsp;游客&nbsp;<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="${path}/admin/login"><i class="fa fa-sign-out fa-fw"></i>&nbsp;登录</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="container-fluid all">
-    <div class="sidebar">
-        <ul class="nav">
-            <li><h3 class=text-info>相关内容</h3></li>
-            <c:if test="${!empty articleList}">
-                <c:forEach items="${articleList}" var="article">
-                    <li><a href="${path}/article/${article.id}"><i class="fa fa-circle-o fa-fw"></i>&nbsp;${article.title}</a></li>
-                </c:forEach>
-            </c:if>
-        </ul>
-    </div>
-    <div class="maincontent row">
-        <ul class="breadcrumb">
-            <li class="active"><Strong>课程详情</Strong></li>
-        </ul>
-        <div class="col-lg-12">
-            <div id="owl-demo" class="owl-carousel">
-                <c:if test="${!empty article.imagePath}">
-                    <c:set value="${ fn:split(article.imagePath, ';') }" var="imagePaths" />
-                    <c:forEach items="${imagePaths}" var="imagePath">
-                        <div class="item"><img class="lazyOwl" data-src="${imagePath}" alt="未找到课件"></div>
+    </nav>
+    <div class="container-fluid all">
+        <div class="sidebar">
+            <ul class="nav">
+                <li><h3 class="text-info">&nbsp;&nbsp;相关内容</h3></li>
+                <c:if test="${!empty articleList}">
+                    <c:forEach items="${articleList}" var="article">
+                        <li><a href="${path}/article/${article.id}"><i class="fa fa-chevron-circle-right"></i>${article.title}</a></li>
                     </c:forEach>
                 </c:if>
-            </div>
+            </ul>
+        </div>
+        <div class="maincontent row">
+            <ul class="breadcrumb">
+                <li class="active"><Strong>课程详情</Strong></li>
+            </ul>
+            <div class="col-lg-12">
+                <div id="owl-demo" class="owl-carousel">
+                    <c:if test="${!empty article.imagePath}">
+                        <c:set value="${ fn:split(article.imagePath, ';') }" var="imagePaths" />
+                        <c:forEach items="${imagePaths}" var="imagePath">
+                            <div class="item"><img class="lazyOwl" data-src="${imagePath}" alt="未找到课件"></div>
+                        </c:forEach>
+                    </c:if>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

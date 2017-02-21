@@ -34,10 +34,11 @@ public class ArticleController {
         return "/client/article";
     }
 
-    @RequestMapping(value = "/article",method = RequestMethod.GET)
+    @RequestMapping(value = "/articles",method = RequestMethod.GET)
     public String showVideo(ModelMap modelMap){
+        modelMap = articleService.GetAllArticlesByCategory(modelMap);
         // 返回给请求页面
-        return "/client/article";
+        return "/client/articles";
     }
 
 }

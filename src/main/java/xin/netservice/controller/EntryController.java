@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import xin.netservice.model.ArticleEntity;
 import xin.netservice.model.UserEntity;
 import xin.netservice.repository.ArticleRepository;
 import xin.netservice.repository.UserRepository;
@@ -12,7 +11,6 @@ import xin.netservice.service.ArticleService;
 import xin.netservice.service.UserService;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,34 +34,7 @@ public class EntryController {
 
     @RequestMapping(value = {"/index","/"})
     public String index(ModelMap modelMap) {
-        List<ArticleEntity> physicsArticleList = new ArrayList<>();
-        List<ArticleEntity> chemistryArticleList = new ArrayList<>();
-        List<ArticleEntity> geographyArticleList = new ArrayList<>();
-        List<ArticleEntity> biologyArticleList = new ArrayList<>();
-        List<ArticleEntity> articleEntityList = articleRepository.findAll();
-        for (ArticleEntity articleEntity:articleEntityList) {
-            switch (articleEntity.getCourseByCategory().getCourseName()){
-                case "Physics":
-                    physicsArticleList.add(articleEntity);
-                    break;
-                case "Biology":
-                    biologyArticleList.add(articleEntity);
-                    break;
-                case "Geography":
-                    geographyArticleList.add(articleEntity);
-                    break;
-                case "Chemistry":
-                    chemistryArticleList.add(articleEntity);
-                    break;
-                default:
-                    //drop
-                    break;
-            }
-        }
-        modelMap.addAttribute("physicsArticleList",physicsArticleList);
-        modelMap.addAttribute("biologyArticleList",biologyArticleList);
-        modelMap.addAttribute("geographyArticleList",geographyArticleList);
-        modelMap.addAttribute("chemistryArticleList",chemistryArticleList);
+        modelMap = articleService.GetAllArticlesByCategory(modelMap);
         return "client/index";
     }
 

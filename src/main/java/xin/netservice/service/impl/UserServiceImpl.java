@@ -32,9 +32,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserEntity findByName(String nickname){
+    public UserEntity findByName(String username){
         try{
-            return userRepository.findByUsername(nickname);
+            return userRepository.findByUsername(username);
         } catch (Exception e){
             e.printStackTrace();
         }

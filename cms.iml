@@ -16,7 +16,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="defaultPersistenceUnit" />
+          <factory-entry name="defaultPersistenceUnit" value="2cd4d4cf-b35e-4d22-b24e-e47331ecf7e0" />
           <factory-entry name="noname-a.xml@0" value="2cd4d4cf-b35e-4d22-b24e-e47331ecf7e0" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
@@ -71,5 +71,6 @@
     <orderEntry type="library" name="Maven: com.mchange:mchange-commons-java:0.2.11" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.39" level="project" />
+    <orderEntry type="library" name="Maven: com.google.zxing:core:3.3.0" level="project" />
   </component>
 </module>

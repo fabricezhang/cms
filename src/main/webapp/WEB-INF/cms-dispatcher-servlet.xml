@@ -27,6 +27,7 @@
             <mvc:exclude-mapping path="/assets/**" />
             <mvc:exclude-mapping path="/video/**"/>
             <mvc:exclude-mapping path="/article/**"/>
+            <mvc:exclude-mapping path="/articles"/>
             <bean id="loginInterceptor" class="xin.netservice.interceptor.loginInterceptor"/>
             <!--这个类就是我们自定义的Interceptor -->
         </mvc:interceptor>
