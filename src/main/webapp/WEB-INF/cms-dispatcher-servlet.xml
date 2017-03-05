@@ -61,9 +61,9 @@
         <property name="jpaProperties">
             <props>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/cms?useSSL=false</prop>
-                <prop key="hibernate.connection.username">demo</prop>
-                <prop key="hibernate.connection.password">demo</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/kxsj?useSSL=false</prop>
+                <prop key="hibernate.connection.username">kxsjadmin</prop>
+                <prop key="hibernate.connection.password">kxsjadmin</prop>
                 <prop key="hibernate.show_sql">false</prop>
                 <prop key="hibernate.connection.useUnicode">true</prop>
                 <prop key="hibernate.connection.characterEncoding">UTF-8</prop>

@@ -1,12 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set value="${pageContext.request.contextPath}" var="path" scope="page"/>
-<!DOCTYPE html>
-<html lang="en-us">
+<html>
+
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>开放性科学实践活动</title>
     <link rel="icon" href="${path}/assets/icon/favicon.ico" />
     <!--jquery库-->
     <script src="${path}/assets/js/jquery.min.js"></script>
@@ -30,7 +31,10 @@
     <link href="${path}/assets/css/default.css" rel="stylesheet" type="text/css" />
     <!--主要写的js代码-->
     <script src="${path}/assets/js/default.js" type="text/javascript"></script>
+    <link href="${path}/assets/css/video/video-js.min.css" rel="stylesheet">
+    <script src="${path}/assets/js/video/video.min.js"></script>
 </head>
+
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -47,16 +51,14 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="${path}/articles"><i class="fa fa-book fa-fw"></i>文章</a></li>
-                <li><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
-                <li class="active"><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
+                <li class="active"><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-expanded="false"><i class="fa fa-user fa-fw"></i><%=session.getAttribute("username")%><span class="caret"></span></a>
+                       aria-expanded="false"><i class="fa fa-user fa-fw"></i>&nbsp;游客&nbsp;<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="${path}/admin/login"><i class="fa fa-refresh fa-fw"></i>切换账户</a></li>
-                        <li><a href="${path}/logout"><i class="fa fa-sign-out fa-fw"></i>登出</a></li>
+                        <li><a href="${path}/admin/login"><i class="fa fa-sign-out fa-fw"></i>&nbsp;登录</a></li>
                     </ul>
                 </li>
             </ul>
@@ -66,26 +68,32 @@
 <div class="container-fluid all">
     <div class="sidebar">
         <ul class="nav">
-            <li><h3 class=text-info>管理列表</h3></li>
-            <li><a href="${path}/admin/articles">文章管理</a></li>
-            <li><a href="${path}/admin/video">视频管理</a></li>
-            <li><a href="${path}/admin/qrcode">二维码生成</a></li>
+            <li><h3 class=text-info>内容列表</h3></li>
+            <li><a href="${path}/articles">所有文章</a></li>
+            <li><a href="${path}/video">所有视频</a></li>
         </ul>
     </div>
     <div class="maincontent row">
-        <!--我是主要内容 start-->
         <ul class="breadcrumb">
-            <li class="active">管理面板</li>
+            <li class="active"><p class="text-warning">视频内容，建议在WIFI下观看</p></li>
         </ul>
-        <div class="col-sm-12">
-            <div class="jumbotron">
-                <h1>欢迎访问内容发布系统测试版管理面板</h1>
-                <p>请点选左侧边栏进入相应内容管理页面</p>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="embed-responsive embed-responsive-16by9">
+                <h4 class="media-heading">物理</h4>
+                <video id="really-cool-video" class="video-js vjs-default-skin embed-responsive-item"
+                       controls="" preload="auto" width="100%" height="100%" poster=""
+                       data-setup="{}">
+                    <%--<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4">--%>
+                    <%--<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">--%>
+                    <%--<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">--%>
+                    <source src="http://115.28.8.165/videos/physic/${videoPath}.MP4" type="video/mp4" >
+                </video>
             </div>
         </div>
         <!--我是主要内容 end-->
     </div>
-<a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
+    <a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
 </div>
 </body>
+
 </html>

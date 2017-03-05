@@ -68,7 +68,7 @@
         <ul class="nav">
             <li><h3 class=text-info>管理列表</h3></li>
             <li><a href="${path}/admin/articles">文章管理</a></li>
-            <li><a href="${path}/admin/video">视频管理</a></li>
+            <li><a href="${path}/admin/videos">视频管理</a></li>
             <li><a href="${path}/admin/qrcode">二维码生成</a></li>
         </ul>
     </div>
@@ -77,15 +77,14 @@
         <ul class="breadcrumb">
             <li class="active">管理面板</li>
         </ul>
-        <div class="col-sm-12">
+        <div class="col-md-12">
             <div class="jumbotron">
-                <h1>欢迎访问内容发布系统测试版管理面板</h1>
-                <p>请点选左侧边栏进入相应内容管理页面</p>
+                <h1>文章内容管理页面</h1>
             </div>
         </div>
         <!--我是主要内容 end-->
     </div>
-<a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
+    <a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
 </div>
 </body>
 </html>

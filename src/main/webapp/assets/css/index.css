@@ -9,3 +9,105 @@
 @media (max-width:768px) {
     #goTop { padding: 0 8px; }
 }
+
+#owl-demo .item { margin: 3px; }
+#owl-demo .item img { display: block; width: 100%; height: auto; }
+
+.badge-physic {
+    background: cornflowerblue;
+}
+.title-physic{
+    color : #ffffff;
+    background: cornflowerblue;
+}
+.badge-chemistry{
+    background: #43BFC7;
+}
+.title-chemistry{
+    color : #ffffff;
+    background: #43BFC7;
+}
+
+.badge-biology{
+    background: #C9BE62;
+}
+.title-biology{
+    color : #ffffff;
+    background: #C9BE62;
+}
+.qrcode{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.badge-geography{
+    background: #C19A6B;
+}
+.title-geography{
+    color : #ffffff;
+    background: #C19A6B;
+}
+
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: none;
+}
+
+.pace .pace-progress {
+    background: #31b0d5;
+    position: fixed;
+    z-index: 2000;
+    top: 0px;
+    right: 100%;
+    width: 100%;
+    height: 4px;
+}
+
+.jumbotron_index {
+    margin-top: 20px;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    color: inherit;
+    background-color: #dcdcdc;
+}
+.jumbotron_index h1,
+.jumbotron_index .h1 {
+    color: inherit;
+}
+.jumbotron_index p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+}
+.jumbotron_index > hr {
+    border-top-color: #d5d5d5;
+}
+.container .jumbotron_index,
+.container-fluid .jumbotron_index {
+    border-radius: 18px;
+}
+.jumbotron_index .container {
+    max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+    .jumbotron_index {
+        padding: 16px 0;
+    }
+    .container .jumbotron_index,
+    .container-fluid .jumbotron_index {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .jumbotron_index h1,
+    .jumbotron_index .h1 {
+        font-size: 21px;
+    }
+}

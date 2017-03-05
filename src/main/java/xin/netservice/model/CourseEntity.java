@@ -1,17 +1,15 @@
 package xin.netservice.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by z on 2017/2/21.
+ * Created by z on 2017/2/26.
  */
 @Entity
 @Table(name = "course", schema = "cms", catalog = "")
 public class CourseEntity {
     private int id;
     private String courseName;
-    private Collection<ArticleEntity> articlesById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -51,14 +49,5 @@ public class CourseEntity {
         int result = id;
         result = 31 * result + (courseName != null ? courseName.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "courseByCategory")
-    public Collection<ArticleEntity> getArticlesById() {
-        return articlesById;
-    }
-
-    public void setArticlesById(Collection<ArticleEntity> articlesById) {
-        this.articlesById = articlesById;
     }
 }

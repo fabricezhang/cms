@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by z on 2017/2/21.
+ * Created by z on 2017/2/26.
  */
 @Entity
 @Table(name = "article", schema = "cms", catalog = "")

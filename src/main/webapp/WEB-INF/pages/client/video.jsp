@@ -52,7 +52,6 @@
             <ul class="nav navbar-nav">
                 <li><a href="${path}/articles"><i class="fa fa-book fa-fw"></i>文章</a></li>
                 <li class="active"><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
-                <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -75,25 +74,33 @@
         </ul>
     </div>
     <div class="maincontent row">
-        <ul class="breadcrumb">
-            <li class="active"><p class="text-warning">视频内容，建议在WIFI下观看</p></li>
-        </ul>
-        <div class="col-md-10 col-md-offset-1">
-            <div class="embed-responsive embed-responsive-16by9">
-                <h4 class="media-heading">物理</h4>
-                <video id="really-cool-video" class="video-js vjs-default-skin embed-responsive-item"
-                       controls="" preload="auto" width="100%" height="100%" poster=""
-                       data-setup="{}">
-                    <%--<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4">--%>
-                    <%--<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">--%>
-                    <%--<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">--%>
-                    <source src="http://115.28.8.165/videos/physic/${videoPath}.MP4" type="video/mp4" >
-                </video>
+        <c:if test="${!empty Video}">
+            <ul class="breadcrumb">
+                <li class="active"><p class="text-warning">${Video.title}，建议在WIFI下观看</p></li>
+            </ul>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <h4 class="media-heading">${Video.title}</h4>
+                    <video id="really-cool-video" class="video-js vjs-default-skin embed-responsive-item"
+                           controls="" preload="auto" width="100%" height="100%" poster=""
+                           data-setup="{}">
+                            <%--<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4">--%>
+                            <%--<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">--%>
+                            <%--<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">--%>
+                        <source src="${Video.videoUrl}" type="video/mp4" >
+                    </video>
+                </div>
             </div>
-        </div>
+        </c:if>
+        <c:if test="${empty Video}">
+            <ul class="breadcrumb">
+                <li class="active"><p class="text-warning">未找到指定视频</p></li>
+            </ul>
+        </c:if>
         <!--我是主要内容 end-->
     </div>
 </div>
+<a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
 </body>
 
 </html>

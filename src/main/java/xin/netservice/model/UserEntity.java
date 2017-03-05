@@ -1,10 +1,9 @@
 package xin.netservice.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by z on 2017/2/21.
+ * Created by z on 2017/2/26.
  */
 @Entity
 @Table(name = "user", schema = "cms", catalog = "")
@@ -14,7 +13,6 @@ public class UserEntity {
     private String firstName;
     private String lastName;
     private String username;
-    private Collection<ArticleEntity> articlesById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -90,14 +88,5 @@ public class UserEntity {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (username != null ? username.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<ArticleEntity> getArticlesById() {
-        return articlesById;
-    }
-
-    public void setArticlesById(Collection<ArticleEntity> articlesById) {
-        this.articlesById = articlesById;
     }
 }

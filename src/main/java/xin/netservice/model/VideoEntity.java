@@ -3,15 +3,16 @@ package xin.netservice.model;
 import javax.persistence.*;
 
 /**
- * Created by z on 2017/2/21.
+ * Created by z on 2017/2/26.
  */
 @Entity
 @Table(name = "video", schema = "cms", catalog = "")
 public class VideoEntity {
     private int id;
-    private String url;
-    private String qrcodeUrl;
+    private String title;
+    private String videoUrl;
     private ArticleEntity articleByArticleId;
+    private CourseEntity courseByCategory;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -24,23 +25,23 @@ public class VideoEntity {
     }
 
     @Basic
-    @Column(name = "url", nullable = true, length = 255)
-    public String getUrl() {
-        return url;
+    @Column(name = "title", nullable = false, length = 100)
+    public String getTitle() {
+        return title;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Basic
-    @Column(name = "qrcodeUrl", nullable = true, length = 255)
-    public String getQrcodeUrl() {
-        return qrcodeUrl;
+    @Column(name = "video_url", nullable = false, length = 255)
+    public String getVideoUrl() {
+        return videoUrl;
     }
 
-    public void setQrcodeUrl(String qrcodeUrl) {
-        this.qrcodeUrl = qrcodeUrl;
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
     }
 
     @Override
@@ -51,8 +52,8 @@ public class VideoEntity {
         VideoEntity that = (VideoEntity) o;
 
         if (id != that.id) return false;
-        if (url != null ? !url.equals(that.url) : that.url != null) return false;
-        if (qrcodeUrl != null ? !qrcodeUrl.equals(that.qrcodeUrl) : that.qrcodeUrl != null) return false;
+        if (title != null ? !title.equals(that.title) : that.title != null) return false;
+        if (videoUrl != null ? !videoUrl.equals(that.videoUrl) : that.videoUrl != null) return false;
 
         return true;
     }
@@ -60,18 +61,28 @@ public class VideoEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (url != null ? url.hashCode() : 0);
-        result = 31 * result + (qrcodeUrl != null ? qrcodeUrl.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (videoUrl != null ? videoUrl.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "article_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "article_id", referencedColumnName = "id")
     public ArticleEntity getArticleByArticleId() {
         return articleByArticleId;
     }
 
     public void setArticleByArticleId(ArticleEntity articleByArticleId) {
         this.articleByArticleId = articleByArticleId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "category", referencedColumnName = "id")
+    public CourseEntity getCourseByCategory() {
+        return courseByCategory;
+    }
+
+    public void setCourseByCategory(CourseEntity courseByCategory) {
+        this.courseByCategory = courseByCategory;
     }
 }

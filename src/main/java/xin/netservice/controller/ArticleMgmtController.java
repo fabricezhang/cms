@@ -35,11 +35,9 @@ public class ArticleMgmtController {
     // 查看所有博文
     @RequestMapping(value = "/admin/articles", method = RequestMethod.GET)
     public String showArticles(@ModelAttribute("userID") int userID, ModelMap modelMap) {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setId(userID);
-        List<ArticleEntity> articleList = articleService.QueryArticlesByUserID(userEntity);
+        List<ArticleEntity> articleList = articleRepository.findAll();
         modelMap.addAttribute("articleList", articleList);
-        return "admin/articles";
+        return "admin/articleMgmt";
     }
 
     // Get Add Article Page
@@ -47,7 +45,7 @@ public class ArticleMgmtController {
     public String addArticle(@ModelAttribute("username")String username, ModelMap modelMap) {
         UserEntity userEntity =userService.findByName(username);
         modelMap.addAttribute("user", userEntity);
-        return "admin/addArticle";
+        return "backup/addArticle";
     }
 
     // Add Article with Post
@@ -62,7 +60,7 @@ public class ArticleMgmtController {
     public String showArticle(@PathVariable("id") int id, ModelMap modelMap) {
         ArticleEntity article = articleRepository.findOne(id);
         modelMap.addAttribute("article", article);
-        return "admin/articleDetail";
+        return "backup/articleDetail";
     }
 
     // 修改博文内容，页面
@@ -73,7 +71,7 @@ public class ArticleMgmtController {
         List<UserEntity> userList = userRepository.findAll();
         modelMap.addAttribute("article", article);
         modelMap.addAttribute("userList", userList);
-        return "admin/updateArticle";
+        return "backup/updateArticle";
     }
 
 //    // 修改博客内容，POST请求

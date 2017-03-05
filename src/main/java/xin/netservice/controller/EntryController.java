@@ -10,6 +10,8 @@ import xin.netservice.repository.UserRepository;
 import xin.netservice.service.ArticleService;
 import xin.netservice.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -63,7 +65,9 @@ public class EntryController {
     }
 
     @RequestMapping(value = "/logout")
-    public String logout(HttpSession httpSession){
+    public String logout(HttpSession httpSession, HttpServletRequest request, HttpServletResponse response){
+        httpSession.removeAttribute("username");
+        httpSession.removeAttribute("userID");
         httpSession.invalidate();
         return "redirect:index";
     }
@@ -77,14 +81,14 @@ public class EntryController {
         modelMap.addAttribute("userList", userList);
 
         // 返回pages目录下的admin/users.jsp页面
-        return "admin/users";
+        return "backup/users";
     }
 
     // get请求，访问添加用户 页面
     @RequestMapping(value = "/admin/users/add", method = RequestMethod.GET)
     public String addUser() {
         // 返回 admin/addUser.jsp页面
-        return "admin/addUser";
+        return "backup/addUser";
     }
 
     // post请求，处理添加用户请求，并重定向到用户管理页面
@@ -116,7 +120,7 @@ public class EntryController {
 
         // 传递给请求页面
         modelMap.addAttribute("user", userEntity);
-        return "admin/userDetail";
+        return "backup/userDetail";
     }
 
     // 更新用户信息 页面
@@ -128,7 +132,7 @@ public class EntryController {
 
         // 传递给请求页面
         modelMap.addAttribute("user", userEntity);
-        return "admin/updateUser";
+        return "backup/updateUser";
     }
 
     // 更新用户信息 操作

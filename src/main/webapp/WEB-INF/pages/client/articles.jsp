@@ -50,7 +50,6 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="${path}/articles"><i class="fa fa-book fa-fw"></i>文章</a></li>
                 <li><a href="${path}/video"><i class="fa fa-video-camera fa-fw"></i>视频</a></li>
-                <li><a href="${path}/admin/admin-index"><i class="fa fa-user fa-fw"></i>管理</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
